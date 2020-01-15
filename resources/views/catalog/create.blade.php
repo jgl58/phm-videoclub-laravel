@@ -4,4 +4,4 @@
 
     Crear película
 
-@stop
+@endsection

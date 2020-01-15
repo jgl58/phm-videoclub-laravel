@@ -2,6 +2,6 @@
 
 @section('content')
 
-    Editar película
+    Editar película {{$id}}
 
-@stop
+@endsection

@@ -4,4 +4,4 @@
 
     Mostrar películas
 
-@stop
+@endsection
