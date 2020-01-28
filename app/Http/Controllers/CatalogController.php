@@ -39,6 +39,7 @@ class CatalogController extends Controller
         $p->rented = false;
         $p->synopsis = $request->input('synopsis');
         $p->save();
+        alert()->success('Aviso', 'Película creada');
         return redirect()->action('CatalogController@getIndex');
 
     }
@@ -51,6 +52,30 @@ class CatalogController extends Controller
         $p->poster = $request->input('poster');
         $p->synopsis = $request->input('synopsis');
         $p->save();
+        alert()->success('Notificación', 'Película editada');
         return view('catalog.show', ['pelicula'=>$p]);
+    }
+
+    public function putRent($id){
+        $p = Movie::findOrFail($id);
+        $p->rented = true;
+        $p->save();
+        alert()->success('Notificación', 'Película alquilada');
+        return redirect()->action('CatalogController@getShow', ['id' => $id]);
+    }
+
+    public function putReturn($id){
+        $p = Movie::findOrFail($id);
+        $p->rented = false;
+        $p->save();
+        alert()->success('Notificación', 'Película devuelta');
+        return redirect()->action('CatalogController@getShow', ['id' => $id]);
+    }
+
+    public function deleteMovie($id){
+        $p = Movie::findOrFail($id);
+        $p->delete();
+        alert()->success('Notificación', 'Película borrada');
+        return redirect()->action('CatalogController@getIndex');
     }
 }

@@ -20,12 +20,28 @@
             @endif
         </p>
         @if($pelicula->rented)
-            <button type="button" class="btn btn-danger">Devolver la película</button>
+            <form action="{{action('CatalogController@putReturn', $pelicula->id)}}" 
+                method="POST" style="display:inline">
+                @method('PUT')
+                @csrf
+                <button type="submit" class="btn btn-danger">Devolver la película</button>
+            </form>
         @else
-            <button type="button" class="btn btn-primary">Alquilar película</button>
+            <form action="{{action('CatalogController@putRent', $pelicula->id)}}" 
+                method="POST" style="display:inline">
+                @method('PUT')
+                @csrf
+                <button type="submit" class="btn btn-primary">Alquilar película</button>
+            </form>
         @endif
         <a type="button" class="btn btn-warning" href={{'/catalog/edit/'.$pelicula->id}}>Editar película</a>
-        <button type="button" class="btn btn-light">Volver al listado</button>
+        <a type="button" class="btn btn-light" href={{action('CatalogController@getIndex')}}>Volver al listado</a>
+        <form action="{{action('CatalogController@deleteMovie', $pelicula->id)}}" 
+            method="POST" style="display:inline">
+            @method('DELETE')
+            @csrf
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
     </div>
 </div>
 

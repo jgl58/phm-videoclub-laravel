@@ -4,8 +4,64 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "92095327b9af0c90f8245c5d6a659ab4",
+    "content-hash": "4e3296feaf0dad73398e00cdf2b6fdea",
     "packages": [
+        {
+            "name": "bpocallaghan/alert",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bpocallaghan/alert.git",
+                "reference": "5087edbb56857646bcb298adab243c8e412f2055"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bpocallaghan/alert/zipball/5087edbb56857646bcb298adab243c8e412f2055",
+                "reference": "5087edbb56857646bcb298adab243c8e412f2055",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Bpocallaghan\\Alert\\AlertServiceProvider"
+                    ],
+                    "aliases": {
+                        "Alert": "Bpocallaghan\\Alert\\Facades\\Alert"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bpocallaghan\\Alert\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben-Piet O'Callaghan",
+                    "email": "bpocallaghan@gmail.com"
+                }
+            ],
+            "description": "A helper package to flash a bootstrap alert to the browser.",
+            "keywords": [
+                "alert",
+                "flash",
+                "laravel",
+                "message",
+                "notification"
+            ],
+            "time": "2018-09-20T13:07:50+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "v0.1.1",

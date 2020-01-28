@@ -161,6 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Bpocallaghan\Alert\AlertServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -190,6 +191,7 @@ return [
 
     'aliases' => [
 
+        'Alert' => Bpocallaghan\Alert\Facades\Alert::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,

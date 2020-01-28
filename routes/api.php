@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/v1/catalog','APICatalogController@index');
+
+Route::get('/v1/catalog/{id}','APICatalogController@show');
+
+Route::put('/v1/catalog/{id}/rent','APICatalogController@putRent')->middleware('auth.basic.once');
+
+Route::put('/v1/catalog/{id}/return','APICatalogController@putReturn')->middleware('auth.basic.once');
+
+Route::resource('/v1/catalog', 'APICatalogController',
+ ['except' => ['index','show','create','edit']])->middleware('auth.basic.once');
